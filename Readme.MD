@@ -10,7 +10,7 @@
 
 ## 2) Primero es recomendable actualizar el kernel de Linux antes de instalar cualquier distribución
 
-	usando el siguiente enlace tenemos acceso a el link del kernel más reciente para Windows:
+### usando el siguiente enlace tenemos acceso a el link del kernel más reciente para Windows:
 
 	https://docs.microsoft.com/es-es/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 

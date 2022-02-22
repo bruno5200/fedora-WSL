@@ -18,7 +18,7 @@
 	
 	wsl --set-default-version 2
 
-## 4) Procedemos a descargar un contenedor base de fedora desde la web oficial y descargamos el que lleva x86_64 en formato xz desde la web oficial de fedora
+## 4) Procedemos a descargar un contenedor base de fedora desde la web oficial y descargamos el que lleva x86_64 en formato xz
 
 	https://koji.fedoraproject.org/koji/packageinfo?packageID=26387
 

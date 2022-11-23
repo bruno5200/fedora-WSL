@@ -1,6 +1,6 @@
 # Instalar Fedora en WSL para versiones de Windows 10 y Windows 11
 
-para seguir esta guía te recomiendo hacer click en el archivo Readme.MD para que lo puedas visualizar de mejor manera si estás en tu navergador o clonar el repositorio.
+para seguir esta guía te recomiendo hacer click en el archivo Readme.MD para que lo puedas visualizar de mejor manera si estás en tu navergador o clonar el repositorio para trancodificarlo a HTML y verlo en un navegador desde donde puedas copiar los comandos a la terminal y powershell.
 
 ## 1) Activa WSL
 

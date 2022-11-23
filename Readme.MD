@@ -109,19 +109,19 @@ crearemos un usuario que no tenga privilegios luego de iniciar fedora como usuar
 	
 primero es necesario instalar passwd y lo podemos instalar con el siguiente comando:
 
-```zsh
+```bash
 dnf install -y passwd cracklib-dicts
 ```
 
 añadimos el nuevo usuario con:
 
-```zsh
+```bash
 useradd -G wheel miusuario
 ```
 
 y para crear el pasword del nuevo usuario:
 
-```zsh
+```bash
 passwd miusuario
 ```
 
@@ -133,19 +133,19 @@ wsl -d fedora -u miusuario
 
 verificamos que nuestro inicio sea correcto.
 
-```
+```bash
 whoami
 ```
 
 comprobamos que podemos usar la contraseña creada para acceder como administrador que nos mostrará una lista de los usuarios en la que el nuestro estará en la parte inferior.
 
-```
+```bash
 sudo cat /etc/shadow
 ```
 
 hacemos este usuario el predeterminado usando el siguiente comando sin olvidar cambiar el miusuario por tu usuario creado
 
-```
+```bash
 printf "\n[user]\ndefault = miusuario\n" | sudo tee -a /etc/wsl.conf
 ```
 
@@ -166,18 +166,18 @@ hacemos una personalización necesaria para poder trabajar sin inconvenientes qu
 
 primero vamos a reinstalar shadow-utils
 
-```zsh
+```bash
 sudo dnf reinstall -y shadow-utils
 ```
 otros comandos que puedes estar acostumbrado a usar que faltan en los rootfs y puedes requerir son (opcional):
 
-```
+```bash
 sudo dnf -y install iproute findutils ncurses
 ```
 
 Si bien el vi incluido es un editor de texto útil, es probable que desee uno que sea más robusto o tenga una interfaz de usuario que se adapte a sus necesidades. Buenas opciones incluyen vim, micro o nano. En mi caso instalaré nano.
 
-```zsh
+```bash
 sudo dnf install -y nano
 ```
 
@@ -189,7 +189,7 @@ si deseas hacer esta instalación en otra máquina y no quieres repetir todo el 
 
 simplemente exporta todo tu conjunto en un tar, procederemos a limpiar los paquetes descargados con este comando:
 
-```zsh	
+```bash	
 sudo dnf clean all
 ```
 
@@ -201,7 +201,7 @@ wsl --export fedora $HOME\Downloads\fedora-wsl.tar
 Y listo sólo tienes que instalarlo en otra máquina siguiendo los pasos iniciales, pero sin tener que descargar el contenedor base, sólo usa el tuyo propio y luego actualízalo o exporta usando el mismo comando. 😀
 
 
-## Actualizr la versión de fedora
+## 12) Actualizar la versión de fedora
 
 primero realiza un backup de lo que tienes hasta ahora, puedes especificar otra carpeta diferente a la de descargas sólo con cambiar la ruta.
 
@@ -211,19 +211,19 @@ wsl --export fedora $HOME\Downloads\fedora-wsl.tar
 
 Ejecutamos el siguiente comando dentro del Shell de fedora que quieras actualizar para actualizar todos los paquetes necesarios a la versión más reciente.
 
-```zsh
+```bash
 sudo dnf --refresh upgrade
 ```
 
 Ahora debemos instalar el plugin para actualizar el sistema y si ya está presente comprobar que no esté desactualizado por algún motivo.
 
-```zsh
+```bash
 sudo dnf install dnf-plugin-system-upgrade
 ```
 
 En mi caso pasaré a la versión 38 (puedes poner la versión correspondiente a la que vayas a hacer el upgrade) que ya es estable en la fecha que hago esta actualización del repositorio, nos pedirá confirmar que tenemos todos los paquetes actualizados a la versión más reciente para ello podemos presionar la tecla Y y luego Enter.
 
-```zsh
+```bash
 sudo dnf system-upgrade download --releasever=38
 ```
 
@@ -231,7 +231,7 @@ De la misma manera al acabar este proceso nos preguntará si estamos de acuerdo 
 
 Luego tendremos que confirgurar una variable de entorno ya que nuestra distribución no está montada sobre un hardware para reiniciarse y tratará de hacerlo fallando en el proceso y generando un posible loop de reinicios, para lo que es necesario ejecutar el siguiente comando:
 
-```zsh
+```bash
 export DNF_SYSTEM_UPGRADE_NO_REBOOT=1
 ```
 
@@ -239,12 +239,12 @@ Posteriormente corremos los comandos `sudo -E dnf system-upgrade reboot` y `sudo
 
 Finalmente necesitamos recargar la base de datos de los Paquetes de RPM
 
-```zsh
+```bash
 sudo rpmdb --rebuilddb
 ```
 
 Por ultimo si nos queda alguna duda de si tenemos todo actualizado podemos volver a refrescar las actualizaciones y verificarla así:
 
-```zsh
+```bash
 sudo dnf upgrade --refresh
 ```

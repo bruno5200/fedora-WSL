@@ -34,7 +34,7 @@ Una vez instalado usar el comando:
 wsl --set-default-version 2
 ```
 
-## 4) Descarga Fedora 37
+## 4) Descarga _Fedora 37_
 
 Procedemos a descargar un contenedor base de fedora desde la web oficial y descargamos el que lleva x86_64 en formato xz
 
@@ -56,7 +56,7 @@ docker export -o fedora-37-rootfs.tar fedora37
 
 ## 5) Creación del directorio de alojamiento
 
-Mientras descarga podemos crear el directorio en el que se alojará nuestro fedora usando este comando
+Mientras descarga podemos crear el directorio en el que se alojará nuestro _Fedora_ usando este comando
 
 ```ps1
 mkdir $HOME\wsl\fedora
@@ -64,10 +64,10 @@ mkdir $HOME\wsl\fedora
 
 ## 6) Extacción de los ficheros
 
-una vez completada la descarga procedemos a extraer usando Z-Zip o WinRAR (la que prefieras), entramos al folder con un nombre en hexadecimal muy estenso y ahí verás un archivo nombrado layer.tar, lo renombramos como "`fedora-<version>-rootfs.tar`" en mi caso es fedora 35 asi que mi archivo queda de la siguiente manera: "fedora-37-rootfs.tar" puedes usar cualquier versión de tu preferencia
+una vez completada la descarga procedemos a extraer usando Z-Zip o WinRAR (la que prefieras), entramos al folder con un nombre en hexadecimal muy estenso y ahí verás un archivo nombrado layer.tar, lo renombramos como "`fedora-<version>-rootfs.tar`" en mi caso es fedora 35 asi que mi archivo queda de la siguiente manera: `fedora-37-rootfs.tar` puedes usar cualquier versión de tu preferencia
 ya sea por estabilidad u otra naturaleza.
 
-## 7) Instalación de fedora
+## 7) Instalación de _Fedora_
 
 ejecutamos el siguiente comando para realizar la instalación (sólo necesitas cambiar el nombre si tu archivo es de otra versión de fedora)
 
@@ -97,13 +97,13 @@ para lanzar fedora como root usamos el siguiente comando
 wsl -d fedora
 ```
 
-el siguiente comando termina la instancia de fedora
+el siguiente comando termina la instancia de _Fedora_
 
 ```ps1
 wsl -t fedora
 ```
 
-## 9) Usuario no Root
+## 9) Usuario no _Root_
 
 crearemos un usuario que no tenga privilegios luego de iniciar fedora como usuario root
 	
@@ -149,7 +149,7 @@ hacemos este usuario el predeterminado usando el siguiente comando sin olvidar c
 printf "\n[user]\ndefault = miusuario\n" | sudo tee -a /etc/wsl.conf
 ```
 
-salimos de wsl y terminamos la instancia de fedora con el comando anteriormente visto de PowerShell.
+salimos de wsl y terminamos la instancia de _Fedora_ con el comando anteriormente visto de PowerShell.
 
 ```ps1
 wsl -t fedora
@@ -201,7 +201,7 @@ wsl --export fedora $HOME\Downloads\fedora-wsl.tar
 Y listo sólo tienes que instalarlo en otra máquina siguiendo los pasos iniciales, pero sin tener que descargar el contenedor base, sólo usa el tuyo propio y luego actualízalo o exporta usando el mismo comando. 😀
 
 
-## 12) Actualizar la versión de fedora
+## 12) Actualizar la versión de _Fedora_
 
 primero realiza un backup de lo que tienes hasta ahora, puedes especificar otra carpeta diferente a la de descargas sólo con cambiar la ruta.
 

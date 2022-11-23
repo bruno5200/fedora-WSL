@@ -72,7 +72,7 @@ ya sea por estabilidad u otra naturaleza.
 ejecutamos el siguiente comando para realizar la instalación (sólo necesitas cambiar el nombre si tu archivo es de otra versión de fedora)
 
 ```ps1
-	wsl --import fedora $HOME\wsl\fedora $HOME\Downloads\fedora-37-rootfs.tar
+wsl --import fedora $HOME\wsl\fedora $HOME\Downloads\fedora-37-rootfs.tar
 ```
 
 ## 8) Gestión de Distribuciones en Powershell
@@ -125,9 +125,11 @@ y para crear el pasword del nuevo usuario:
 passwd miusuario
 ```
 
-ahora salimos de WSL con "exit" y lo volvemos a iniciar con el siguiente comando cambiando el usuario en tu caso
+ahora salimos de WSL con "exit" y lo volvemos a iniciar con el siguiente comando cambiando el usuario en tu caso:
 
-	wsl -d fedora -u miusuario
+```ps1
+wsl -d fedora -u miusuario
+```
 
 verificamos que nuestro inicio sea correcto.
 
@@ -135,7 +137,7 @@ verificamos que nuestro inicio sea correcto.
 whoami
 ```
 
-### comprobamos que podemos usar la contraseña creada para acceder como administrador que nos mostrará una lista de los usuarios en la que el nuestro estará en la parte inferior.
+comprobamos que podemos usar la contraseña creada para acceder como administrador que nos mostrará una lista de los usuarios en la que el nuestro estará en la parte inferior.
 
 ```
 sudo cat /etc/shadow
